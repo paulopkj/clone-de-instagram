@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+
+    <!-- RESPONSIVIDADE BASE (OBRIGATÓRIO) -->
+    <!-- Faz o site se adaptar ao tamanho da tela do dispositivo -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="./stylles.css">
+    <title>Instagram</title>
+</head>
+
+<body>
+
+    <!-- CONTAINER PRINCIPAL (AGRUPA TUDO) -->
+    <main class="main-container">
+
+        <!-- BLOCO DAS IMAGENS (CELULAR + TELAS) -->
+        <div class="imagens">
+            <img src="assets/celular.png" class="img-celular">
+            <img src="assets/insta1.png" class="img-insta">
+            <img src="assets/insta2.png" class="img-insta img-2">
+        </div>
+
+        <!-- FORMULÁRIO -->
+        <div class="container">
+            <img src="assets/insta-logo.png" class="logo">
+
+            <input placeholder="Telefone, nome de usuário ou email" type="text">
+            <input placeholder="Senha" type="password">
+
+            <button class="my-button">Entrar</button>
+
+            <a class="facebook">Entrar com o Facebook</a>
+            <a class="esqueceu-senha">Esqueceu a senha ?</a>
+        </div>
+
+    </main>
+
+</body>
+
+<script>
+    const imagem = document.querySelector(".img-2");
+
+    let visivel = true;
+
+    setInterval(() => {
+        imagem.style.transition = "opacity 1.5s ease-in-out";
+
+        visivel = !visivel;
+        imagem.style.opacity = visivel ? 1 : 0;
+
+    }, 3000);
+</script>
+
+</html>

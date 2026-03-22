@@ -1,0 +1,233 @@
+/* ================= RESET BÁSICO ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ================= BODY ================= */
+/* Centraliza tudo na tela */
+body {
+    background-color: #08b7f250;
+    font-family: sans-serif;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    min-height: 100vh; /* melhor que height fixa */
+}
+
+/* ================= CONTAINER PRINCIPAL ================= */
+/* Controla layout geral (imagem + formulário) */
+.main-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem; /* espaço entre imagem e formulário */
+}
+
+/* ================= BLOCO DE IMAGENS ================= */
+.imagens {
+    position: relative; /* permite posicionamento absoluto interno */
+}
+
+/* IMAGEM DO CELULAR */
+.img-celular {
+    width: 28rem; /* tamanho base */
+    max-width: 100%; /* evita quebrar em telas menores */
+}
+
+/* IMAGENS INTERNAS (TELAS DO INSTAGRAM) */
+.img-insta {
+    height: 32rem;
+
+    position: absolute;
+    left: 9.5rem;
+    top: 1.9rem;
+
+    transition: 2s ease-in-out;
+}
+
+/* EFEITO VISUAL (extra) */
+.img-insta:hover {
+    transform: rotate(360deg);
+}
+
+/* ================= FORMULÁRIO ================= */
+.container {
+    border: 1px solid #6a6868;
+
+    display: flex;
+    flex-direction: column;
+
+    width: 17rem;
+    padding: 2.5rem;
+
+    background: #f6f8f9e9;
+    border-radius: 5px;
+}
+
+/* LOGO */
+.logo {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+/* INPUTS */
+input {
+    height: 2.5rem;
+    border: 1px solid #D3D3D3;
+    border-radius: 3px;
+    margin-top: 10px;
+    padding: 0 0.5rem;
+    outline: none;
+}
+
+/* BOTÃO */
+button {
+    background-color: #0095f6;
+    height: 2.5rem;
+    border-radius: 3px;
+    border: none;
+    color: #ffffff;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #0073c9;
+}
+
+button:active {
+    background-color: #005a9c;
+}
+
+/* LINKS */
+.facebook {
+    color: #385185;
+    text-align: center;
+    margin-top: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.esqueceu-senha {
+    color: #385185;
+    text-align: center;
+    cursor: pointer;
+    font-size: 12px;
+    margin-top: 20px;
+}
+
+/* =====================================================
+   📱 RESPONSIVIDADE (A PARTE MAIS IMPORTANTE)
+===================================================== */
+
+/* TABLET */
+@media (max-width: 900px) {
+
+    /* Empilha os elementos (vertical) */
+    .main-container {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    /* Reduz tamanho do celular */
+    .img-celular {
+        width: 22rem;
+    }
+
+    .img-insta {
+        height: 25rem;
+        left: 7.5rem;
+        top: 1.5rem;
+    }
+}
+
+/* CELULAR */
+@media (max-width: 600px) {
+
+    /* ESCONDE IMAGEM DO CELULAR (padrão apps reais) */
+    .imagens {
+        display: none;
+    }
+
+    /* Form ocupa mais espaço */
+    .container {
+        width: 90%;
+        max-width: 22rem;
+    }
+
+    body {
+        padding: 1rem;
+    }
+}
+
+/* ANIMAÇÃO DE ENTRADA */
+.main-container {
+    animation: aparecer 1s ease-in-out;
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.img-celular {
+    animation: flutuar 4s ease-in-out infinite;
+}
+
+@keyframes flutuar {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+input {
+    transition: 0.3s;
+}
+
+/* QUANDO CLICA */
+input:focus {
+    border: 1px solid #0095f6;
+    box-shadow: 0 0 5px rgba(0, 149, 246, 0.5);
+}
+
+button {
+    transition: 0.2s;
+}
+
+/* QUANDO PASSA O MOUSE */
+button:hover {
+    transform: scale(1.03);
+}
+
+/* QUANDO CLICA */
+button:active {
+    transform: scale(0.97);
+}
+
+.facebook,
+.esqueceu-senha {
+    transition: 0.3s;
+}
+
+.facebook:hover,
+.esqueceu-senha:hover {
+    opacity: 0.7;
+}
